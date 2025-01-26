@@ -36,8 +36,9 @@ const Hero = () => {
                 key={i}
                 data-aos="fade-down"
                 data-aos-delay={i * 300}
-                className={`flex items-center w-full sm:w-80 gap-5
-                  ${i === 1 && "flex-row-reverse text-right"}`}
+                className={`flex items-center w-full sm:w-80 gap-5 ${
+                  i === 1 && "flex-row-reverse text-right"
+                }`}
               >
                 <h3 className="text-2xl sm:text-3xl font-bold">
                   {content.count}
@@ -49,12 +50,12 @@ const Hero = () => {
         </div>
 
         {/* Second Column: Image */}
-        <div className="md:h-[37rem] h-96 w-full md:w-auto">
+        <div className="md:h-[37rem] h-96 w-full md:w-auto flex items-center justify-center">
           <img
             src={hero.image}
             data-aos="slide-up"
             alt="Hero"
-            className="h-full w-full object-cover"
+            className="h-full w-full object-contain" // Changed from object-cover to object-contain
           />
         </div>
       </div>
