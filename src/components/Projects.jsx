@@ -44,10 +44,10 @@ const Projects = () => {
     <section className="bg-bg_light_primary" id="projects">
       <div className="md:container px-5 pt-14 min-h-screen flex flex-col justify-between">
         <div>
-          <h2 className="title" data-aos="fade-down">
+          <h2 className="title text-3xl sm:text-4xl md:text-5xl" data-aos="fade-down">
             {Projects.title}
           </h2>
-          <h4 className="subtitle" data-aos="fade-down">
+          <h4 className="subtitle text-lg sm:text-xl md:text-2xl" data-aos="fade-down">
             {Projects.subtitle}
           </h4>
           <br />
@@ -56,9 +56,9 @@ const Projects = () => {
           {/* Left Side: Image */}
           <img
             src={Projects.image}
-            alt="..."
+            alt="Projects"
             data-aos="fade-left"
-            className="max-w-[55vw] min-w-[28rem] -mt-4" // Added negative margin-top
+            className="max-w-[55vw] min-w-[20rem] md:min-w-[28rem] -mt-4"
           />
 
           {/* Right Side: Swiper */}
@@ -70,10 +70,10 @@ const Projects = () => {
             spaceBetween={24} // Increased space between slides
             modules={[Pagination, Autoplay]} // Added Autoplay module
             autoplay={{
-              delay: 1500, // Auto-scroll every 3 seconds
+              delay: 1500, // Auto-scroll every 1.5 seconds
               disableOnInteraction: false, // Continue autoplay after user interaction
             }}
-            className="rounded-3xl pb-8 max-w-md drop-shadow-primary self-start mt-12" // Added margin-top
+            className="rounded-3xl pb-8 max-w-md drop-shadow-primary self-start mt-12"
           >
             {Projects.project_content.map((content, i) => (
               <SwiperSlide
@@ -84,7 +84,7 @@ const Projects = () => {
                 {/* Project Image */}
                 <img
                   src={content.images[0]}
-                  alt="..."
+                  alt={content.title}
                   className="rounded-lg w-full h-48 object-cover"
                 />
 
@@ -109,11 +109,12 @@ const Projects = () => {
         </div>
       </div>
 
+      {/* Popup for Project Details */}
       {isPopupOpen && activeProject && (
-        <div className="fixed w-300 inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50 p-4">
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50 p-4">
           <div
             ref={popupRef}
-            className="bg-white rounded-lg p-6 w-2/44 md:w-3/4 lg:w-1/2 relative max-h-[90vh] overflow-y-auto"
+            className="bg-white rounded-lg p-6 w-full md:w-3/4 lg:w-1/2 relative max-h-[90vh] overflow-y-auto"
           >
             {/* Close Button */}
             <button
@@ -124,7 +125,7 @@ const Projects = () => {
             </button>
 
             {/* Gallery */}
-            <div className="mb-9">
+            <div className="mb-6">
               <Swiper
                 pagination={{
                   clickable: true,
@@ -138,7 +139,7 @@ const Projects = () => {
                     <img
                       src={image}
                       alt={`${activeProject.title} - ${index + 1}`}
-                      className="w-full h-64 md:h-96 object-cover rounded-lg"
+                      className="w-full h-48 md:h-64 lg:h-96 object-cover rounded-lg"
                     />
                   </SwiperSlide>
                 ))}

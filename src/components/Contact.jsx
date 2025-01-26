@@ -13,19 +13,20 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-      'YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_PUBLIC_KEY'
+        "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
+        "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
+        form.current,
+        "YOUR_PUBLIC_KEY" // Replace with your EmailJS public key
       )
       .then(
         (result) => {
           console.log(result.text);
-          // Clear all input field values
-          form.current.reset();
-          // Success toast message
-          toast.success("Email send Successfully");
+          form.current.reset(); // Clear all input fields
+          toast.success("Email sent successfully!"); // Success toast
         },
         (error) => {
           console.log(error.text);
-          toast.error(error.text);
+          toast.error("Failed to send email. Please try again."); // Error toast
         }
       );
   };
@@ -42,19 +43,19 @@ const Contact = () => {
         </h4>
         <br />
         <div className="flex gap-10 md:flex-row flex-col">
+          {/* Contact Form */}
           <form
             ref={form}
             onSubmit={sendEmail}
             data-aos="fade-up"
             className="flex-1 flex flex-col gap-5"
           >
-            {/* Input Name as same as email js templates values */}
             <input
               type="text"
               name="from_name"
               placeholder="Name"
               required
-              className="border border-slate-600 p-3 rounded"
+              className="border border-slate-600 p-3 rounded bg-transparent text-white placeholder-gray-400 focus:outline-none focus:border-white"
             />
             <input
               type="email"
@@ -62,31 +63,39 @@ const Contact = () => {
               pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
               placeholder="Email Id"
               required
-              className="border border-slate-600 p-3 rounded"
+              className="border border-slate-600 p-3 rounded bg-transparent text-white placeholder-gray-400 focus:outline-none focus:border-white"
             />
             <textarea
               name="message"
               placeholder="Message"
-              className="border border-slate-600 p-3 rounded h-44"
+              className="border border-slate-600 p-3 rounded h-44 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:border-white"
               required
             ></textarea>
             <button
-              className="btn self-start
-            bg-white text-dark_primary"
+              className="btn self-start bg-white text-dark_primary hover:bg-gray-200 transition-colors duration-200"
             >
               Submit
             </button>
           </form>
+
+          {/* Social Media Links */}
           <div className="flex-1 flex flex-col gap-5">
             {Contact.social_media.map((content, i) => (
               <div
                 key={i}
                 data-aos="fade-down"
                 data-aos-delay={i * 430}
-                className="flex items-center gap-2"
+                className="flex items-center gap-4"
               >
-                <h4 className="text-white">{createElement(content.icon)}</h4>
-                <a className="font-Poppins" href={content.link} target="_blank">
+                <h4 className="text-white text-2xl">
+                  {createElement(content.icon)}
+                </h4>
+                <a
+                  className="font-Poppins text-white hover:text-gray-300 transition-colors duration-200"
+                  href={content.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {content.text}
                 </a>
               </div>

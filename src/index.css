@@ -24,16 +24,16 @@
     @apply text-dark_primary;
   }
   h1 {
-    @apply font-Poppins lg:text-6xl text-3xl font-extrabold;
+    @apply font-Poppins lg:text-6xl md:text-5xl text-4xl font-extrabold;
   }
   h2 {
-    @apply font-Inria text-5xl font-bold;
+    @apply font-Inria lg:text-5xl md:text-4xl text-3xl font-bold;
   }
   h3 {
-    @apply font-Paprika text-5xl;
+    @apply font-Paprika lg:text-5xl md:text-4xl text-3xl;
   }
   h4 {
-    @apply md:text-4xl text-3xl !leading-relaxed font-Paprika;
+    @apply lg:text-4xl md:text-3xl text-2xl !leading-relaxed font-Paprika;
   }
   h6 {
     @apply font-Paprika font-bold text-[#253D57] leading-8;
@@ -57,7 +57,7 @@
      border-dark_primary rounded-br-3xl font-medium;
   }
   .title {
-    @apply md:text-3xl text-2xl;
+    @apply lg:text-3xl md:text-2xl text-xl;
   }
   .subtitle {
     @apply text-gray;
