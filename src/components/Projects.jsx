@@ -53,33 +53,39 @@ const Projects = () => {
           <br />
         </div>
         <div className="flex items-center lg:flex-row flex-col-reverse gap-4 -mt-12">
-          {/* Left Side: Image */}
-          <img
-            src={Projects.image}
-            alt="Projects"
-            data-aos="fade-left"
-            className="max-w-[55vw] min-w-[20rem] md:min-w-[28rem] -mt-4"
-          />
-
           {/* Right Side: Swiper */}
           <Swiper
             pagination={{
               clickable: true,
             }}
             data-aos="fade-right"
-            spaceBetween={24} // Increased space between slides
-            modules={[Pagination, Autoplay]} // Added Autoplay module
+            spaceBetween={0} // No space between slides
+            modules={[Pagination, Autoplay]}
             autoplay={{
-              delay: 1500, // Auto-scroll every 1.5 seconds
-              disableOnInteraction: false, // Continue autoplay after user interaction
+              delay: 1500,
+              disableOnInteraction: false,
             }}
-            className="rounded-3xl pb-8 max-w-md drop-shadow-primary self-start mt-12"
+            breakpoints={{
+              320: {
+                slidesPerView: 1, // 1 slide on mobile
+              },
+              640: {
+                slidesPerView: 1, // 1 slide on tablets
+              },
+              768: {
+                slidesPerView: 1, // 1 slide on larger screens
+              },
+              1024: {
+                slidesPerView: 1, // 1 slide on desktops
+              },
+            }}
+            className="w-full rounded-3xl pb-8 drop-shadow-primary self-start mt-12"
           >
             {Projects.project_content.map((content, i) => (
               <SwiperSlide
                 key={i}
-                className="bg-white rounded-3xl p-6 border-b-8 border-[#FAF9FD] h-fit cursor-pointer hover:shadow-xl transition-all duration-300"
-                onClick={() => openPopup(content)} // Make the entire module clickable
+                className="bg-white rounded-3xl p-6 border-b-8 border-[#FAF9FD] h-[400px] cursor-pointer hover:shadow-xl transition-all duration-300 w-full"
+                onClick={() => openPopup(content)} // Make the entire slide clickable
               >
                 {/* Project Image */}
                 <img
@@ -95,7 +101,7 @@ const Projects = () => {
                   </h5>
                   <button
                     onClick={(e) => {
-                      e.stopPropagation(); // Prevent the parent onClick from firing
+                      e.stopPropagation();
                       openPopup(content);
                     }}
                     className="font-bold text-gray-600 self-end hover:text-blue-600 transition-colors"
@@ -130,8 +136,8 @@ const Projects = () => {
                 pagination={{
                   clickable: true,
                 }}
-                navigation={true} // Enable navigation arrows
-                modules={[Pagination, Navigation]} // Add Navigation module
+                navigation={true}
+                modules={[Pagination, Navigation]}
                 className="rounded-lg"
               >
                 {activeProject.images.map((image, index) => (

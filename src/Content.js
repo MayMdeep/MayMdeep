@@ -31,7 +31,7 @@ import thamrah3 from "./assets/images/Projects/thamrah3.png";
 import person_project from "./assets/images/Projects/person.png";
 
 import Hireme_person from "./assets/images/Hireme/person.png";
-import Hireme_person2 from "./assets/images/Hireme/person2.png";
+import Hireme_person2 from "./assets/images/Hireme/person.png";
 
 // import icons from react-icons
 import { GrMail } from "react-icons/gr";
@@ -194,6 +194,12 @@ export const content = {
       {
         title: "Shake Shake",
         link: "https://www.winshakes.com",
+        images: [bazel1, bazel1, bazel1], // Array of images
+        description: "Unlock a load of surprises with every mystery box – discover products worth double or triple what you paid! Rest easy knowing there are no damaged items,with secure payment methods..",
+      },
+      {
+        title: "Laimonah Shop",
+        link: "https://website.laimonah-scc.com/",
         images: [bazel1, bazel1, bazel1], // Array of images
         description: "Unlock a load of surprises with every mystery box – discover products worth double or triple what you paid! Rest easy knowing there are no damaged items,with secure payment methods..",
       },
