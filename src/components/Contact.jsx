@@ -1,35 +1,23 @@
-import { createElement, useRef } from "react";
+import { createElement, useRef, useEffect, useState } from "react";
 import { content } from "../Content";
-import emailjs from "@emailjs/browser";
+import { useForm, ValidationError } from '@formspree/react';
 import toast, { Toaster } from "react-hot-toast";
 
 const Contact = () => {
   const { Contact } = content;
   const form = useRef();
 
-  // Sending Email
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    emailjs
-      .sendForm(
-        "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
-        "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
-        form.current,
-        "YOUR_PUBLIC_KEY" // Replace with your EmailJS public key
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          form.current.reset(); // Clear all input fields
-          toast.success("Email sent successfully!"); // Success toast
-        },
-        (error) => {
-          console.log(error.text);
-          toast.error("Failed to send email. Please try again."); // Error toast
-        }
-      );
-  };
+  const [showToast, setShowToast] = useState(false); // State to control showing toast
+  const [state, handleSubmit] = useForm("mgvopynk"); // Replace with your Formspree form ID
+  
+  useEffect(() => {
+    // Only show the success toast once after form submission
+    if (state.succeeded && !showToast) {
+      toast.success("Email sent successfully!"); // Success toast
+      setShowToast(true); // Set to true to avoid multiple toast
+      form.current.reset(); // Reset form fields after successful submission
+    }
+  }, [state.succeeded, showToast]);
 
   return (
     <section className="bg-dark_primary text-white" id="contact">
@@ -46,7 +34,7 @@ const Contact = () => {
           {/* Contact Form */}
           <form
             ref={form}
-            onSubmit={sendEmail}
+            onSubmit={handleSubmit}
             data-aos="fade-up"
             className="flex-1 flex flex-col gap-5"
           >
@@ -59,8 +47,7 @@ const Contact = () => {
             />
             <input
               type="email"
-              name="user_email"
-              pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
+              name="email" // This should match the field name in Formspree
               placeholder="Email Id"
               required
               className="border border-slate-600 p-3 rounded bg-transparent text-white placeholder-gray-400 focus:outline-none focus:border-white"
@@ -71,8 +58,15 @@ const Contact = () => {
               className="border border-slate-600 p-3 rounded h-44 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:border-white"
               required
             ></textarea>
+            <ValidationError
+              prefix="Message"
+              field="message"
+              errors={state.errors}
+            />
             <button
+              type="submit"
               className="btn self-start bg-white text-dark_primary hover:bg-gray-200 transition-colors duration-200"
+              disabled={state.submitting}
             >
               Submit
             </button>

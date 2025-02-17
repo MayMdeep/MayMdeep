@@ -145,21 +145,22 @@ export const content = {
     service_content: [
       {
         title: "Project Management & Agile Coaching",
-        para: "With experience as a Project Manager and Scrum Master, I provide expert guidance in managing projects with Agile methodologies. I ensure smooth project delivery through effective planning, resource management, and continuous team collaboration, fostering a high-performing work environment.",
+        para: "Experienced in Agile methodologies, I ensure smooth project execution through effective planning, resource management, and team collaboration.",
         logo: services_logo1,
       },
       {
         title: "Team Leadership & Development",
-        para: "As a Team Lead, I focus on empowering teams, optimizing workflows, and driving technical excellence. I support developers through mentorship, ensuring efficient development cycles and successful project outcomes. My leadership ensures alignment with business goals and fosters team growth.",
+        para: "As a Team Lead, I optimize workflows, mentor developers, and drive technical excellence to align teams with business goals.",
         logo: services_logo2,
       },
       {
         title: "Web & Backend Development",
-        para: "I offer full-stack web and backend development services, specializing in React, Laravel, and database systems. My focus is on building robust and scalable applications, from the initial concept to deployment, ensuring seamless user experiences and efficient backend solutions.",
+        para: "Specializing in React, Laravel, and databases, I build scalable, high-performance applications with seamless user experiences.",
         logo: services_logo3,
       },
     ],
   },
+  
 
 
   Projects: {
@@ -169,7 +170,7 @@ export const content = {
     project_content: [
       {
         title: "Thamrah",
-        link: "https://thamrah.net/en",
+        link: "https://thamrah.net",
         images: [thamrah1, thamrah2, thamrah3], // Array of images
         description: "Thamrah is an educational website aimed at facilitating the understanding of university subjects for students. ",
       },
@@ -212,11 +213,11 @@ export const content = {
     subtitle: "FOR YOUR PROJECTS",
     image1: Hireme_person,
     image2: Hireme_person2,
-    para: "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document elying on mean",
-    btnText: "Hire Me",
+    para: "Looking for a skilled professional to bring your project to life? I offer expertise in development, project management, and agile coaching to ensure seamless execution and top-quality results.",
+    btnText: "Contact Me",
   },
   Contact: {
-    title: "Contect Me",
+    title: "Contact Me",
     subtitle: "GET IN TOUCH",
     social_media: [
       {
@@ -227,7 +228,7 @@ export const content = {
       {
         text: "+963 937532212",
         icon: MdCall,
-        link: "https://wa.me/1234567890",
+        link: "https://wa.me/0937532212",
       },
       {
         text: "MayDeep",

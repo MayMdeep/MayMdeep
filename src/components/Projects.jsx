@@ -3,9 +3,8 @@ import { content } from "../Content";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/navigation"; // Import Swiper navigation styles
-import "swiper/css/autoplay"; // Import Swiper autoplay styles
-import { Pagination, Navigation, Autoplay } from "swiper"; // Import Autoplay module
+import "swiper/css/navigation";
+import { Pagination, Navigation, Autoplay } from "swiper";
 
 const Projects = () => {
   const { Projects } = content;
@@ -41,70 +40,49 @@ const Projects = () => {
   }, [isPopupOpen]);
 
   return (
-    <section className="bg-bg_light_primary" id="projects">
-      <div className="md:container px-5 pt-14 min-h-screen flex flex-col justify-between">
-        <div>
-          <h2 className="title text-3xl sm:text-4xl md:text-5xl" data-aos="fade-down">
+    <section className="bg-bg_light_primary py-16 min-h-[500px] max-h-[800px]" id="projects">
+      <div className="max-w-3xl mx-auto px-5 flex flex-col justify-between">
+        {/* Title Section */}
+        <div className="text-center">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold" data-aos="fade-down">
             {Projects.title}
           </h2>
-          <h4 className="subtitle text-lg sm:text-xl md:text-2xl" data-aos="fade-down">
-            {Projects.subtitle}
-          </h4>
-          <br />
         </div>
-        <div className="flex items-center lg:flex-row flex-col-reverse gap-4 -mt-12">
-          {/* Right Side: Swiper */}
+
+        {/* Swiper Section */}
+        <div className="flex flex-col lg:flex-row items-center gap-6 mt-10">
           <Swiper
-            pagination={{
-              clickable: true,
-            }}
+            pagination={{ clickable: true }}
             data-aos="fade-right"
-            spaceBetween={0} // No space between slides
+            spaceBetween={10}
             modules={[Pagination, Autoplay]}
-            autoplay={{
-              delay: 1500,
-              disableOnInteraction: false,
-            }}
+            autoplay={{ delay: 2000, disableOnInteraction: false }}
             breakpoints={{
-              320: {
-                slidesPerView: 1, // 1 slide on mobile
-              },
-              640: {
-                slidesPerView: 1, // 1 slide on tablets
-              },
-              768: {
-                slidesPerView: 1, // 1 slide on larger screens
-              },
-              1024: {
-                slidesPerView: 1, // 1 slide on desktops
-              },
+              320: { slidesPerView: 1 },
+              640: { slidesPerView: 1 },
+              768: { slidesPerView: 1 },
+              1024: { slidesPerView: 1 },
             }}
-            className="w-full rounded-3xl pb-8 drop-shadow-primary self-start mt-12"
+            className="w-full rounded-3xl drop-shadow-lg"
           >
-            {Projects.project_content.map((content, i) => (
+            {Projects.project_content.map((project, i) => (
               <SwiperSlide
                 key={i}
-                className="bg-white rounded-3xl p-6 border-b-8 border-[#FAF9FD] h-[400px] cursor-pointer hover:shadow-xl transition-all duration-300 w-full"
-                onClick={() => openPopup(content)} // Make the entire slide clickable
+                className="bg-white rounded-3xl p-6 shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer"
+                onClick={() => openPopup(project)}
               >
                 {/* Project Image */}
-                <img
-                  src={content.images[0]}
-                  alt={content.title}
-                  className="rounded-lg w-full h-48 object-cover"
-                />
+                <img src={project.images[0]} alt={project.title} className="rounded-lg w-full h-55 object-cover" />
 
                 {/* Project Details */}
-                <div className="flex flex-col gap-2 mt-4">
-                  <h5 className="font-bold font-Poppins text-xl text-gray-800">
-                    {content.title}
-                  </h5>
+                <div className="mt-4">
+                  <h5 className="text-xl font-semibold text-gray-800">{project.title}</h5>
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      openPopup(content);
+                      openPopup(project);
                     }}
-                    className="font-bold text-gray-600 self-end hover:text-blue-600 transition-colors"
+                    className="text-blue-600 hover:underline mt-2 block"
                   >
                     READ MORE
                   </button>
@@ -120,7 +98,7 @@ const Projects = () => {
         <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50 p-4">
           <div
             ref={popupRef}
-            className="bg-white rounded-lg p-6 w-full md:w-3/4 lg:w-1/2 relative max-h-[90vh] overflow-y-auto"
+            className="bg-white rounded-lg p-6 w-full md:w-3/4 lg:w-1/2 relative max-h-[90vh] overflow-y-auto shadow-lg"
           >
             {/* Close Button */}
             <button
@@ -132,21 +110,10 @@ const Projects = () => {
 
             {/* Gallery */}
             <div className="mb-6">
-              <Swiper
-                pagination={{
-                  clickable: true,
-                }}
-                navigation={true}
-                modules={[Pagination, Navigation]}
-                className="rounded-lg"
-              >
+              <Swiper pagination={{ clickable: true }} navigation modules={[Pagination, Navigation]} className="rounded-lg">
                 {activeProject.images.map((image, index) => (
                   <SwiperSlide key={index}>
-                    <img
-                      src={image}
-                      alt={`${activeProject.title} - ${index + 1}`}
-                      className="w-full h-48 md:h-64 lg:h-96 object-cover rounded-lg"
-                    />
+                    <img src={image} alt={`${activeProject.title} - ${index + 1}`} className="w-full h-48 md:h-64 lg:h-96 object-cover rounded-lg" />
                   </SwiperSlide>
                 ))}
               </Swiper>
@@ -154,13 +121,8 @@ const Projects = () => {
 
             {/* Project Details */}
             <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-gray-800">
-                {activeProject.title}
-              </h3>
-              <p className="text-gray-600">
-                {activeProject.description ||
-                  "This is a detailed description of the project."}
-              </p>
+              <h3 className="text-2xl font-bold text-gray-800">{activeProject.title}</h3>
+              <p className="text-gray-600">{activeProject.description || "This is a detailed description of the project."}</p>
               <a
                 href={activeProject.link}
                 target="_blank"

@@ -38,36 +38,25 @@ const Skills = memo(() => {
   return (
     <section className="min-h-fit bg-bg_light_primary px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-14" id="skills">
       {modalIsOpen && (
-        <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
-          style={customStyles}
-        >
-          <div className="flex items-center gap-3">
-            <img className="h-10" src={selectSkill?.logo} alt="..." />
-            <h6>{selectSkill?.name}</h6>
-          </div>
-          <br />
-          <ul className="list-decimal px-4 font-Poppins sm:text-sm text-xs !leading-7">
-            <li>Lorem ipsum dolor sit, amet consectetur adipisicing.</li>
-            <li>Lorem ipsum dolor sit, ame.</li>
-            <li>Lorem ipsum dolor sit, amet consectetur</li>
-            <li>
-              Lorem ipsum dolor sit, amet dolor sit, amet consectetur adipisicing.
-            </li>
-            <li>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad est
-              beatae quos rem.
-            </li>
-          </ul>
-          <br />
-          <div className="flex justify-end">
-            <button onClick={closeModal} className="btn px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base">
-              Close
-            </button>
-          </div>
-        </Modal>
-      )}
+  <Modal
+    isOpen={modalIsOpen}
+    onRequestClose={closeModal}
+    style={customStyles}
+  >
+    <div className="flex items-center gap-3">
+      <img className="h-20" src={selectSkill?.logo} alt={selectSkill?.name} />
+      <h6 className="text-xl font-semibold">{selectSkill?.name}</h6>
+    </div>
+    <p className="mt-4 text-lg">{selectSkill?.para}</p> {/* Add the para text here */}
+    <br />
+    <div className="flex justify-end">
+      <button onClick={closeModal} className="btn px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base">
+        Close
+      </button>
+    </div>
+  </Modal>
+)}
+
 
       <div className="md:container px-5 py-14">
         <h2 className="title text-2xl sm:text-3xl md:text-4xl" data-aos="fade-down">
@@ -87,13 +76,15 @@ const Skills = memo(() => {
                relative group w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.33%-1rem)] lg:w-[calc(25%-1rem)] 
                flex items-center gap-5 p-5 rounded-md border-2 border-slate-200"
             >
-              <div className="w-20 h-20 flex justify-center items-center">
-                <img
-                  src={skill.logo}
-                  alt={skill.name}
-                  className="w-10 h-10 sm:w-12 sm:h-12 group-hover:scale-150 duration-200"
-                  loading="lazy"
-                />
+              <div className="w-47 h-50  flex justify-center items-center">
+              <img
+  src={skill.logo}
+  alt={skill.name}
+  className="w-30 h-24 sm:w-28 sm:h-28 object-contain group-hover:scale-150 duration-200"
+  loading="lazy"
+/>
+
+
               </div>
               <div>
                 <h6>{skill.name}</h6>

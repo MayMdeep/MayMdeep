@@ -12,7 +12,7 @@ import "aos/dist/aos.css";
 const App = () => {
   useEffect(() => {
     Aos.init({
-      duration: 1800,
+      duration: 1400,
       offset: 100,
     });
   }, []);
@@ -80,7 +80,7 @@ const App = () => {
 
             {/* Contact Information */}
             <div className="text-center md:text-right">
-              <p className="text-sm sm:text-base text-gray-600">Email: maydeep@example.com</p>
+              <p className="text-sm sm:text-base text-gray-600">Email: maydeep@gmail.com</p>
               <p className="text-sm sm:text-base text-gray-600">Phone: +123 456 7890</p>
             </div>
           </div>
