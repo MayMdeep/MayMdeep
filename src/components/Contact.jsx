@@ -8,12 +8,12 @@ const Contact = () => {
   const form = useRef();
 
   const [showToast, setShowToast] = useState(false); // State to control showing toast
-  const [state, handleSubmit] = useForm("mgvopynk"); // Replace with your Formspree form ID
+  const [state, handleSubmit] = useForm("xkoelwpz"); // Replace with your Formspree form ID
   
   useEffect(() => {
     // Only show the success toast once after form submission
     if (state.succeeded && !showToast) {
-      toast.success("Email sent successfully!"); // Success toast
+      toast.success("Message received! I'll get back to you within 24 hours — talk soon 🚀!"); // Success toast
       setShowToast(true); // Set to true to avoid multiple toast
       form.current.reset(); // Reset form fields after successful submission
     }

@@ -29,9 +29,13 @@ import thamrah1 from "./assets/images/Projects/thamrah1.png";
 import thamrah2 from "./assets/images/Projects/thamrah2.png";
 import thamrah3 from "./assets/images/Projects/thamrah3.png";
 import person_project from "./assets/images/Projects/thamrah1.png";
+import sawa from "./assets/images/Projects/newsawa.png";
+
+import lucky from "./assets/images/Projects/lucky.png";
 
 import Hireme_person from "./assets/images/Hireme/person.png";
 import Hireme_person2 from "./assets/images/Hireme/person.png";
+import ResumePDF from "./assets/images/May Deeb - Resume.pdf";
 
 // import icons from react-icons
 import { GrMail } from "react-icons/gr";
@@ -91,7 +95,9 @@ export const content = {
     subtitle: "B2B/B2C SaaS Specialist | Agile Leader | Trilingual: Arabic, English & German",
     firstName: "MAY",
     LastName: "DEEB",
-    btnText: "Hire Me",
+    btnText: " Let's Work Together!",
+    resumeBtnText: "Download Resume",
+    resumeLink: ResumePDF,
     image: Hero_person,
     hero_content: [
       {
@@ -301,42 +307,48 @@ export const content = {
     subtitle: "MY CREATION",
     image: person_project,
     project_content: [
+      
       {
-        title: "Redeemly SaaS Platform",
-        link: "https://redeemly.com",
-        images: [person_project],
-        description: "Product ownership and platform development for a SaaS voucher and rewards platform.",
-      },
-      {
-        title: "UltraWares ISP Billing System",
+        title: "UltraWares - B2B Qoutation System",
         link: "",
         images: [rfq1],
-        description: "ISP billing and management system developed for UltraWares / Pharaon Group.",
+        description: "B2B quotation system developed for UltraWares / Pharaon Group.",
       },
       {
-        title: "Alfahad Online Platform",
-        link: "",
+        title: "Charity webapp - Bazel Alnada",
+        link: "http://bathelalnada.com/en",
         images: [bazel1],
-        description: "E-commerce and internal platforms for Alfahad Regional Company.",
+        description: "E-commerce and internal platforms for Square.",
       },
       {
-        title: "Square Tech Educational Platform",
-        link: "",
-        images: [rent1],
-        description: "Educational platform and learning tools developed while at Square Tech Company.",
+        title: "LuckyCode SaaS Voucher & Rewards Platform",
+        link: "https://redeemly.com/VOX&LikeCard",
+        images: [lucky],
+        description: "Product ownership and platform development for a SaaS voucher and rewards platform - mock demo linked.",
       },
       {
-        title: "Syria Hackathon 2025 Finalist Project",
-        link: "",
+        title: "Sawa ISP Billing System - Mobile app and web dashboard",
+        link: "https://play.google.com/store/apps/details?id=com.sawaisp.sawaapp&hl=en-US&pli=1",
+        images: [sawa],
+        description: "Provided backend support for an educational website and dashboard, resulting in a 30% increase in user engagement.",
+      },
+      {
+        title: "Tech Educational Platform",
+        link: "https://thamrah.com/",
         images: [thamrah1],
-        description: "Project that reached Top 12 in Syria Hackathon 2025.",
+        description: "Provided backend support for an educational website and dashboard, resulting in a 30% increase in user engagement.",
+      },{
+        title: "Rent A chicken Platform",
+        link: "http://rentchicken.net/",
+        images: [rent1],
+        description: "Product ownership and platform development for a SaaS voucher and rewards platform.",
       },
     ],
   }
   ,
 
   Hireme: {
-    title: "Hire Me",
+    title: " Let's Work Together!",
     subtitle: "FOR YOUR PROJECTS",
     image1: Hireme_person,
     image2: Hireme_person2,
@@ -353,19 +365,19 @@ export const content = {
         link: "mailto:may.m.deep@gmail.com",
       },
       {
-        text: "+966 5X XXX XXXX",
+        text: "+963 0937532212",
         icon: MdCall,
-        link: "https://wa.me/9665XXXXXXX",
+        link: "tel:+9630937532212",
       },
       {
         text: "LinkedIn",
         icon: BsLinkedin,
-        link: "https://www.linkedin.com/in/may-deeb",
+        link: "https://linkedin.com/in/may-deeb",
       },
       {
         text: "Damascus, Syria",
         icon: TbSmartHome,
-        link: "",
+        link: "https://www.google.com/maps/search/Damascus+Syria",
       },
     ],
     note: "Open to German-speaking roles and international remote work",
@@ -385,12 +397,12 @@ export const content = {
       {
         name: "English",
         level: "C1",
-        details: "Listening, Speaking, Writing — Reading B1",
+        details: "Listening/Spoken Production/Spoken Interaction/Writing — Reading B1",
       },
       {
         name: "German",
         level: "B1",
-        details: "Listening, Reading, Speaking — Writing: B2 (strength)",
+        details: "Listening/Reading/Spoken Production/Spoken Interaction — Writing: B2",
         highlight: "Writing: B2",
       },
     ],
@@ -404,24 +416,41 @@ export const content = {
         company: "Redeemly.com",
         period: "Apr 2025–Present",
         location: "Remote from Riyadh",
+        bullets: [
+          "Led product vision and roadmap for a B2B/B2C SaaS platform focused on digital rewards and loyalty solutions.",
+          "Spearheaded digital transformation with Zoho One CRM.",
+        ],
       },
       {
         role: "Project Manager",
         company: "UltraWares – Pharaon Group",
         period: "Sep 2023–Mar 2025",
         location: "Damascus",
+        bullets: [
+          "Led development of a comprehensive ISP billing system designed to handle millions of users across diverse regions.",
+          "Delivered integrated billing cycles, subscriptions, payments, and real-time chat.",
+          "Tech: Laravel, React, Flutter, Elasticsearch, FreeRADIUS.",
+        ],
       },
       {
         role: "Backend Team Lead",
         company: "Alfahad Regional Company",
         period: "Jan 2022–Sep 2023",
         location: "Damascus",
+        bullets: [
+          "Designed real-time live conversations integration using Pusher with Laravel-React-Flutter.",
+          "Increased user interaction by 35%, user acquisition by 40%, and decreased reported issues by 55%.",
+        ],
       },
       {
         role: "Software Developer",
         company: "Square Tech Company",
         period: "Nov 2021–Dec 2022",
         location: "Kuwait",
+        bullets: [
+          "Provided backend support for an educational website and dashboard.",
+          "Delivered a 30% increase in user engagement and 85% customer satisfaction.",
+        ],
       },
     ],
   },
@@ -457,13 +486,13 @@ export const content = {
     items: [
       {
         name: "Ammar Joukhadar",
-        title: "Dean of ITE",
-        text: "",
+        title: "Dean of ITE Faculty",
+        text: "ajoukhadar@el-ixir.com · +963 944509880",
       },
       {
         name: "Anas Qudamani",
-        title: "CEO, Redeemly",
-        text: "",
+        title: "CEO of Redeemly",
+        text: "a.qudamani@redeemly.com · +971 562260784",
       },
     ],
   },

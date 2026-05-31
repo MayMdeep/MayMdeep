@@ -25,8 +25,20 @@ const Hero = () => {
             <p className="mt-3 text-lg text-gray-600 max-w-xl">{hero.subtitle}</p>
           )}
           <br />
-          <div className="flex justify-end">
-            <button className="btn">{hero.btnText}</button>
+          <div className="flex flex-wrap gap-4 justify-end">
+            <a
+              href="#contact"
+              className="btn hover:opacity-90 transition-opacity duration-200"
+            >
+              {hero.btnText}
+            </a>
+            <a
+              href={hero.resumeLink}
+              download
+              className="btn bg-white text-dark_primary hover:bg-slate-100 transition-colors duration-200"
+            >
+              {hero.resumeBtnText}
+            </a>
           </div>
           <div className="flex flex-col gap-10 mt-10">
             {hero.hero_content.map((content, i) => (
