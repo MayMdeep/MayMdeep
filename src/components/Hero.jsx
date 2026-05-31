@@ -21,6 +21,9 @@ const Hero = () => {
         {/* first col */}
         <div className="pb-16 px-6 pt-5" data-aos="fade-down">
           <h2>{hero.title}</h2>
+          {hero.subtitle && (
+            <p className="mt-3 text-lg text-gray-600 max-w-xl">{hero.subtitle}</p>
+          )}
           <br />
           <div className="flex justify-end">
             <button className="btn">{hero.btnText}</button>
