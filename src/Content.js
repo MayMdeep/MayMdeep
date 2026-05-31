@@ -1,5 +1,5 @@
 // import images
-import Hero_person from "./assets/images/Hero/person.png";
+import Hero_person from "./assets/images/Hero/may.png";
 
 // Import statements for logos
 import laravel from "./assets/images/Skills/laravel.png";
@@ -43,6 +43,7 @@ import { MdArrowForward, MdCall } from "react-icons/md";
 import { BsInstagram } from "react-icons/bs";
 import { BsLinkedin } from "react-icons/bs";
 import { BsFacebook } from "react-icons/bs";
+import {FaGithub } from "react-icons/fa";
 
 import { TbSmartHome } from "react-icons/tb";
 import { BiUser } from "react-icons/bi";
@@ -375,6 +376,11 @@ export const content = {
         link: "https://linkedin.com/in/may-deeb",
       },
       {
+        text: "GitHub",
+        icon: FaGithub,
+        link: "https://github.com/MayMdeep",
+      },
+      {
         text: "Damascus, Syria",
         icon: TbSmartHome,
         link: "https://www.google.com/maps/search/Damascus+Syria",
@@ -461,7 +467,7 @@ export const content = {
       {
         title: "BSc IT Engineering (AI)",
         org: "Damascus University",
-        period: "2016–2024",
+        period: "2016–2023",
       },
       {
         title: "Generative AI for Product Managers",
