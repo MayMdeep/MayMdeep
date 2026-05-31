@@ -28,7 +28,7 @@ import rent3 from "./assets/images/Projects/rent3.png";
 import thamrah1 from "./assets/images/Projects/thamrah1.png";
 import thamrah2 from "./assets/images/Projects/thamrah2.png";
 import thamrah3 from "./assets/images/Projects/thamrah3.png";
-import person_project from "./assets/images/Projects/person.png";
+import person_project from "./assets/images/Projects/thamrah1.png";
 
 import Hireme_person from "./assets/images/Hireme/person.png";
 import Hireme_person2 from "./assets/images/Hireme/person.png";
@@ -37,14 +37,15 @@ import Hireme_person2 from "./assets/images/Hireme/person.png";
 import { GrMail } from "react-icons/gr";
 import { MdArrowForward, MdCall } from "react-icons/md";
 import { BsInstagram } from "react-icons/bs";
-// import { BsInstagram } from "react-icons/bs";
 import { BsLinkedin } from "react-icons/bs";
 import { BsFacebook } from "react-icons/bs";
 
 import { TbSmartHome } from "react-icons/tb";
 import { BiUser } from "react-icons/bi";
-import { RiServiceLine, RiProjectorLine } from "react-icons/ri";
+import { RiServiceLine, RiProjectorLine, RiMessage2Line } from "react-icons/ri";
 import { MdOutlinePermContactCalendar } from "react-icons/md";
+import { FaLanguage, FaGraduationCap } from "react-icons/fa";
+import { AiOutlineHistory } from "react-icons/ai";
 
 export const content = {
   nav: [
@@ -57,12 +58,28 @@ export const content = {
       icon: BiUser,
     },
     {
+      link: "#languages",
+      icon: FaLanguage,
+    },
+    {
       link: "#services",
       icon: RiServiceLine,
     },
     {
+      link: "#experience",
+      icon: AiOutlineHistory,
+    },
+    {
       link: "#projects",
       icon: RiProjectorLine,
+    },
+    {
+      link: "#education",
+      icon: FaGraduationCap,
+    },
+    {
+      link: "#recommendations",
+      icon: RiMessage2Line,
     },
     {
       link: "#contact",
@@ -70,9 +87,10 @@ export const content = {
     },
   ],
   hero: {
-    title: "Software Engineer",
+    title: "Product Owner & Software Engineer",
+    subtitle: "B2B/B2C SaaS Specialist | Agile Leader | Trilingual: Arabic, English & German",
     firstName: "MAY",
-    LastName: "DEEP",
+    LastName: "DEEB",
     btnText: "Hire Me",
     image: Hero_person,
     hero_content: [
@@ -91,9 +109,124 @@ export const content = {
     subtitle: "MY TOP SKILLS",
     skills_content: [
       {
+        name: "Leadership",
+        para: "Proven leadership experience managing cross-functional teams and steering product strategy.",
+        logo: services_logo1,
+      },
+      {
+        name: "B2B",
+        para: "Deep experience building business-to-business SaaS products and integrations.",
+        logo: services_logo2,
+      },
+      {
+        name: "B2C",
+        para: "Built consumer-facing platforms with strong UX and scalable backend systems.",
+        logo: services_logo3,
+      },
+      {
+        name: "SaaS",
+        para: "Design and operate multi-tenant SaaS platforms with monitoring and deployment pipelines.",
+        logo: services_logo1,
+      },
+      {
+        name: "ERPs",
+        para: "Experience with ERP integrations and business process automation.",
+        logo: services_logo2,
+      },
+      {
+        name: "Decision-making",
+        para: "Data-driven decision-making with prioritization frameworks and stakeholder alignment.",
+        logo: services_logo3,
+      },
+      {
+        name: "Agile",
+        para: "Agile practitioner with product ownership and scrum facilitation experience.",
+        logo: reactjs,
+      },
+      {
+        name: "Scrum",
+        para: "Hands-on Scrum implementation across product teams and distributed teams.",
+        logo: nodejs,
+      },
+      {
+        name: "System Architecture",
+        para: "Designing resilient architectures for scale, security, and maintainability.",
+        logo: sqlserver,
+      },
+      {
+        name: "Full-Stack Dev",
+        para: "End-to-end development from frontend interfaces to backend services and databases.",
+        logo: reactjs,
+      },
+      {
         name: "Laravel",
         para: "Experienced in building robust and scalable web applications using Laravel, including RESTful APIs and backend services.",
         logo: laravel,
+      },
+      {
+        name: "React",
+        para: "Proficient in developing dynamic and responsive user interfaces with React.js, leveraging hooks and state management libraries.",
+        logo: reactjs,
+      },
+      {
+        name: "ASP.NET Core",
+        para: "Backend development and APIs using ASP.NET Core for enterprise-grade services.",
+        logo: services_logo1,
+      },
+      {
+        name: "Odoo",
+        para: "Custom Odoo modules and ERP workflows.",
+        logo: services_logo2,
+      },
+      {
+        name: "Elasticsearch",
+        para: "Search and analytics using Elasticsearch for performant retrieval.",
+        logo: services_logo3,
+      },
+      {
+        name: "Pusher",
+        para: "Realtime messaging and event-driven updates using Pusher.",
+        logo: services_logo1,
+      },
+      {
+        name: "JIRA",
+        para: "Project tracking, sprint planning and issue management with JIRA.",
+        logo: services_logo2,
+      },
+      {
+        name: "Zoho CRM",
+        para: "CRM integration and automation using Zoho platforms.",
+        logo: services_logo3,
+      },
+      {
+        name: "Docker",
+        para: "Containerization for consistent environments and deployments.",
+        logo: services_logo1,
+      },
+      {
+        name: "Git",
+        para: "Version control and collaborative workflows using Git.",
+        logo: services_logo2,
+      },
+      {
+        name: "Flutter",
+        para: "Cross-platform mobile app development with Flutter.",
+        logo: services_logo3,
+      },
+      {
+        name: "Firebase",
+        para: "Realtime databases, auth, and cloud functions using Firebase.",
+        logo: services_logo1,
+      },
+      {
+        name: "RESTful APIs",
+        para: "Designing and documenting RESTful APIs for interoperability.",
+        logo: services_logo2,
+      },
+      {
+        name: "German Technical Communication",
+        para: "Technical writing and communication in German for engineering teams.",
+        logo: services_logo3,
       },
       {
         name: "React.js",
@@ -144,18 +277,18 @@ export const content = {
     subtitle: "WHAT I OFFER",
     service_content: [
       {
-        title: "Project Management & Agile Coaching",
-        para: "Experienced in Agile methodologies, I ensure smooth project execution through effective planning, resource management, and team collaboration.",
+        title: "Product Ownership & Strategy",
+        para: "Define product vision, prioritization, and go-to-market strategy for B2B/B2C SaaS products.",
         logo: services_logo1,
       },
       {
-        title: "Team Leadership & Development",
-        para: "As a Team Lead, I optimize workflows, mentor developers, and drive technical excellence to align teams with business goals.",
+        title: "Project & Team Leadership",
+        para: "Lead cross-functional teams to deliver projects on time while fostering growth and best practices.",
         logo: services_logo2,
       },
       {
-        title: "Web & Backend Development",
-        para: "Specializing in React, Laravel, and databases, I build scalable, high-performance applications with seamless user experiences.",
+        title: "Full-Stack & System Architecture",
+        para: "Design and build robust full-stack systems; support German-speaking teams for technical collaboration.",
         logo: services_logo3,
       },
     ],
@@ -169,40 +302,34 @@ export const content = {
     image: person_project,
     project_content: [
       {
-        title: "Thamrah",
-        link: "https://thamrah.net",
-        images: [thamrah1, thamrah2, thamrah3], // Array of images
-        description: "Thamrah is an educational website aimed at facilitating the understanding of university subjects for students. ",
+        title: "Redeemly SaaS Platform",
+        link: "https://redeemly.com",
+        images: [person_project],
+        description: "Product ownership and platform development for a SaaS voucher and rewards platform.",
       },
       {
-        title: "Q Quotation",
-        link: "https://www.qquotation.com/#home",
-        images: [rfq1, rfq2, rfq3], // Array of images
-        description: "Q Quotation is a B2B platform that provides a streamlined procurement solution through an intuitive RFQ/RFP system",
+        title: "UltraWares ISP Billing System",
+        link: "",
+        images: [rfq1],
+        description: "ISP billing and management system developed for UltraWares / Pharaon Group.",
       },
       {
-        title: "Bathel Al Nada Charity",
-        link: "https://bathelalnada.com/en",
-        images: [bazel1, bazel2, bazel3], // Array of images
-        description: "AL Nada Association for Charitable Activities, a non-profit public benefit association, licensed by the Ministry of Social Affairs, by Ministerial Resolution No. 25/A of 2022.",
+        title: "Alfahad Online Platform",
+        link: "",
+        images: [bazel1],
+        description: "E-commerce and internal platforms for Alfahad Regional Company.",
       },
       {
-        title: "Rent Chicken",
-        link: "https://www.winshakes.com",
-        images: [rent1, rent2, rent3], // Array of images
-        description: "You can enjoy the experience of raising chickens without having to bear the burden of daily care.",
+        title: "Square Tech Educational Platform",
+        link: "",
+        images: [rent1],
+        description: "Educational platform and learning tools developed while at Square Tech Company.",
       },
       {
-        title: "Shake Shake",
-        link: "https://www.winshakes.com",
-        images: [bazel1, bazel1, bazel1], // Array of images
-        description: "Unlock a load of surprises with every mystery box – discover products worth double or triple what you paid! Rest easy knowing there are no damaged items,with secure payment methods..",
-      },
-      {
-        title: "Laimonah Shop",
-        link: "https://website.laimonah-scc.com/",
-        images: [bazel1, bazel1, bazel1], // Array of images
-        description: "Unlock a load of surprises with every mystery box – discover products worth double or triple what you paid! Rest easy knowing there are no damaged items,with secure payment methods..",
+        title: "Syria Hackathon 2025 Finalist Project",
+        link: "",
+        images: [thamrah1],
+        description: "Project that reached Top 12 in Syria Hackathon 2025.",
       },
     ],
   }
@@ -213,7 +340,7 @@ export const content = {
     subtitle: "FOR YOUR PROJECTS",
     image1: Hireme_person,
     image2: Hireme_person2,
-    para: "Looking for a skilled professional to bring your project to life? I offer expertise in development, project management, and agile coaching to ensure seamless execution and top-quality results.",
+    para: "Looking for a skilled professional to bring your project to life? I offer expertise in product ownership, full-stack development, and team leadership for international and German-speaking teams.",
     btnText: "Contact Me",
   },
   Contact: {
@@ -226,23 +353,118 @@ export const content = {
         link: "mailto:may.m.deep@gmail.com",
       },
       {
-        text: "+963 937532212",
+        text: "+966 5X XXX XXXX",
         icon: MdCall,
-        link: "https://wa.me/0937532212",
+        link: "https://wa.me/9665XXXXXXX",
       },
       {
-        text: "MayDeep",
-        icon: BsFacebook,
-        link: "https://www.facebook.com/may.mdeep?mibextid=ZbWKwL",
-      },
-      {
-        text: "MayDeep",
+        text: "LinkedIn",
         icon: BsLinkedin,
-        link: "https://www.linkedin.com/in/may-deep-b81202211",
+        link: "https://www.linkedin.com/in/may-deeb",
+      },
+      {
+        text: "Damascus, Syria",
+        icon: TbSmartHome,
+        link: "",
+      },
+    ],
+    note: "Open to German-speaking roles and international remote work",
+  },
+  Footer: {
+    text: "مرحبا • Hello • Hallo — All © Copy Right Reserved 2026",
+  },
+  languages: {
+    title: "Languages",
+    subtitle: "LANGUAGE SKILLS (CEFR)",
+    languages: [
+      {
+        name: "Arabic",
+        level: "Native",
+        details: "",
+      },
+      {
+        name: "English",
+        level: "C1",
+        details: "Listening, Speaking, Writing — Reading B1",
+      },
+      {
+        name: "German",
+        level: "B1",
+        details: "Listening, Reading, Speaking — Writing: B2 (strength)",
+        highlight: "Writing: B2",
       },
     ],
   },
-  Footer: {
-    text: "All © Copy Right Reserved 2025",
+  workExperience: {
+    title: "Work Experience",
+    subtitle: "PROFESSIONAL TIMELINE",
+    roles: [
+      {
+        role: "Product Owner",
+        company: "Redeemly.com",
+        period: "Apr 2025–Present",
+        location: "Remote from Riyadh",
+      },
+      {
+        role: "Project Manager",
+        company: "UltraWares – Pharaon Group",
+        period: "Sep 2023–Mar 2025",
+        location: "Damascus",
+      },
+      {
+        role: "Backend Team Lead",
+        company: "Alfahad Regional Company",
+        period: "Jan 2022–Sep 2023",
+        location: "Damascus",
+      },
+      {
+        role: "Software Developer",
+        company: "Square Tech Company",
+        period: "Nov 2021–Dec 2022",
+        location: "Kuwait",
+      },
+    ],
+  },
+  education: {
+    title: "Education & Certifications",
+    subtitle: "ACADEMIC & PROFESSIONAL",
+    items: [
+      {
+        title: "BSc IT Engineering (AI)",
+        org: "Damascus University",
+        period: "2016–2024",
+      },
+      {
+        title: "Generative AI for Product Managers",
+        org: "LinkedIn",
+        period: "2026",
+      },
+      {
+        title: "AI-Driven Project Manager",
+        org: "LinkedIn",
+        period: "2026",
+      },
+      {
+        title: "Syria Hackathon 2025 Top 12 Finalist",
+        org: "Syria Hackathon",
+        period: "2025",
+      },
+    ],
+  },
+  recommendations: {
+    title: "Recommendations",
+    subtitle: "ENDORSEMENTS",
+    items: [
+      {
+        name: "Ammar Joukhadar",
+        title: "Dean of ITE",
+        text: "",
+      },
+      {
+        name: "Anas Qudamani",
+        title: "CEO, Redeemly",
+        text: "",
+      },
+    ],
   },
 };
