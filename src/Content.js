@@ -33,7 +33,7 @@ import sawa from "./assets/images/Projects/newsawa.png";
 
 import lucky from "./assets/images/Projects/lucky.png";
 
-import Hireme_person from "./assets/images/Hireme/person.png";
+import Hireme_person from "./assets/images/Hero/1person.png";
 import Hireme_person2 from "./assets/images/Hireme/person.png";
 import ResumePDF from "./assets/images/May Deeb - Resume.pdf";
 
@@ -486,12 +486,12 @@ export const content = {
     items: [
       {
         name: "Ammar Joukhadar",
-        title: "Dean of ITE Faculty",
+        title: "Dean of ITE Faculty, Damascus University",
         text: "ajoukhadar@el-ixir.com · +963 944509880",
       },
       {
         name: "Anas Qudamani",
-        title: "CEO of Redeemly",
+        title: "CEO of Redeemly - LikeCard ",
         text: "a.qudamani@redeemly.com · +971 562260784",
       },
     ],

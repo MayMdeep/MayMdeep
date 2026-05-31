@@ -13,7 +13,7 @@ import { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { content } from "./Content";
-import { FaGithub, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaGithub, FaTwitter, FaLinkedin,FaEnvelope, FaInstagram } from "react-icons/fa";
 
 const App = () => {
   useEffect(() => {
@@ -40,66 +40,43 @@ const App = () => {
         <Hireme />
         <Contact />
       </div>
-      <footer className="bg-bg_light_primary border-t border-slate-200 py-16 mt-16">
-        <div className="container mx-auto px-4">
-          <div className="grid gap-8 lg:grid-cols-3 items-center">
-            <div className="text-center lg:text-left">
-              <h6 className="text-2xl font-bold text-gray-800">MAY DEEP</h6>
-              <p className="text-sm sm:text-base text-gray-600 mt-2">Transforming Ideas into Reality</p>
-            </div>
-            <div className="flex justify-center gap-4">
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-gray-900 transition-colors"
-                title="GitHub"
-              >
-                <FaGithub className="text-2xl" />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-blue-500 transition-colors"
-                title="Twitter"
-              >
-                <FaTwitter className="text-2xl" />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-blue-700 transition-colors"
-                title="LinkedIn"
-              >
-                <FaLinkedin className="text-2xl" />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-pink-500 transition-colors"
-                title="Instagram"
-              >
-                <FaInstagram className="text-2xl" />
-              </a>
-            </div>
-            <div className="text-center lg:text-right">
-              {contactData.social_media.map((item, index) => (
-                <p key={index} className="text-sm sm:text-base text-gray-600">
-                  {item.text}
-                </p>
-              ))}
-              {contactData.note && <p className="text-sm sm:text-base text-gray-600 mt-3">{contactData.note}</p>}
-            </div>
-          </div>
+<footer className="border-t border-gray-100 bg-white py-8 mt-20">
+  <div className="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+    
+    <p className="text-sm text-gray-500">
+      © {new Date().getFullYear()} May Deeb. All rights reserved.
+    </p>
 
-          <div className="mt-10 text-center text-sm sm:text-base text-gray-600">
-            {Footer.text}
-          </div>
-        </div>
-      </footer>
+    <div className="flex items-center gap-6">
+      <a
+        href="https://github.com/MayMdeep"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-gray-400 hover:text-gray-600 transition-colors"
+        aria-label="GitHub"
+      >
+        <FaGithub className="text-lg" />
+      </a>
+      <a
+        href="https://linkedin.com/in/may-deeb"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-gray-400 hover:text-gray-600 transition-colors"
+        aria-label="LinkedIn"
+      >
+        <FaLinkedin className="text-lg" />
+      </a>
+      <a
+        href="mailto:may.m.deep@gmail.com"
+        className="text-gray-400 hover:text-gray-600 transition-colors"
+        aria-label="Email"
+      >
+        <FaEnvelope className="text-lg" />
+      </a>
+    </div>
+
+  </div>
+</footer>
     </div>
   );
 };
