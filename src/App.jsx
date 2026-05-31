@@ -26,7 +26,7 @@ const App = () => {
   const { Contact: contactData, Footer } = content;
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-x-hidden">
       <Navbar />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <Hero />

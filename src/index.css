@@ -45,6 +45,9 @@
   button {
     @apply font-Poppins;
   }
+  body {
+    @apply overflow-x-hidden bg-white;
+  }
   input,
   textarea {
     @apply bg-transparent outline-none font-Poppins;

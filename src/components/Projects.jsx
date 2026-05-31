@@ -40,7 +40,7 @@ const Projects = () => {
   }, [isPopupOpen]);
 
   return (
-    <section className="bg-bg_light_primary py-16 min-h-[500px] max-h-[800px]" id="projects">
+    <section className="bg-bg_light_primary py-16" id="projects">
       <div className="max-w-3xl mx-auto px-5 flex flex-col justify-between">
         {/* Title Section */}
         <div className="text-center">
@@ -75,7 +75,7 @@ const Projects = () => {
 <img 
   src={project.images[0]} 
   alt={project.title} 
-  className="rounded-lg w-full h-55 object-contain max-h-80" 
+  className="rounded-lg w-full h-auto object-contain max-h-80" 
 />
                 {/* Project Details */}
                 <div className="mt-4">

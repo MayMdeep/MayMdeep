@@ -26,13 +26,14 @@ const Testimonials = () => {
           }}
           data-aos="fade-up"
           loop={true}
+          autoHeight={true}
           spaceBetween={40}
-          slidesPerView={1.5}
+          slidesPerView={1}
           onSlideChange={(e) => {
             setActiveIndex(e.realIndex);
           }}
           modules={[Pagination]}
-          className="md:h-96 h-[40rem] max-w-3xl mx-auto"
+          className="w-full max-w-3xl mx-auto"
         >
           {Testimonials.testimonials_content.map((content, i) => (
             <SwiperSlide key={i}>

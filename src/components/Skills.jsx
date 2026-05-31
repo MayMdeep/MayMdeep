@@ -76,11 +76,11 @@ const Skills = memo(() => {
                relative group w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.33%-1rem)] lg:w-[calc(25%-1rem)] 
                flex items-center gap-5 p-5 rounded-md border-2 border-slate-200"
             >
-              <div className="w-47 h-50  flex justify-center items-center">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 flex justify-center items-center">
               <img
   src={skill.logo}
   alt={skill.name}
-  className="w-30 h-24 sm:w-28 sm:h-28 object-contain group-hover:scale-150 duration-200"
+  className="w-16 h-16 sm:w-20 sm:h-20 object-contain group-hover:scale-150 duration-200"
   loading="lazy"
 />
 
