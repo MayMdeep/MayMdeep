@@ -72,8 +72,11 @@ const Projects = () => {
                 onClick={() => openPopup(project)}
               >
                 {/* Project Image */}
-                <img src={project.images[0]} alt={project.title} className="rounded-lg w-full h-55 object-cover" />
-
+<img 
+  src={project.images[0]} 
+  alt={project.title} 
+  className="rounded-lg w-full h-55 object-contain max-h-80" 
+/>
                 {/* Project Details */}
                 <div className="mt-4">
                   <h5 className="text-xl font-semibold text-gray-800">{project.title}</h5>

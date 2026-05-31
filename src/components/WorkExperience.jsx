@@ -24,6 +24,13 @@ const WorkExperience = () => {
                 </div>
                 <div className="text-sm text-gray-500">{r.period}</div>
               </div>
+              {r.bullets && r.bullets.length > 0 && (
+                <ul className="mt-4 list-disc list-inside text-sm text-gray-700 space-y-2">
+                  {r.bullets.map((bullet, idx) => (
+                    <li key={idx}>{bullet}</li>
+                  ))}
+                </ul>
+              )}
             </div>
           ))}
         </div>

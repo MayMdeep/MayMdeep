@@ -36,9 +36,12 @@ const Hireme = () => {
           >
             <p className="leading-7 text-sm sm:text-base">{Hireme.para}</p>
             <br />
-            <button className="btn bg-dark_primary text-white hover:bg-dark_primary/90 transition-colors duration-200">
+            <a
+              href="#contact"
+              className="inline-block btn bg-dark_primary text-white hover:bg-dark_primary/90 transition-colors duration-200"
+            >
               {Hireme.btnText}
-            </button>
+            </a>
           </div>
         </div>
       </div>
