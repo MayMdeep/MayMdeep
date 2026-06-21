@@ -1,9 +1,7 @@
 import React, { memo, useState, useCallback, useMemo, useRef, useEffect } from "react";
-import React, { memo, useState, useCallback, useMemo, useRef, useEffect } from "react";
 import { content } from "../Content";
 import Modal from "react-modal";
 import { MdArrowForward } from "react-icons/md";
-import toast, { Toaster } from "react-hot-toast";
 import toast, { Toaster } from "react-hot-toast";
 
 const customStyles = {
@@ -35,9 +33,6 @@ const Skills = memo(() => {
 
   const openModal = useCallback(() => setIsOpen(true), []);
   const closeModal = useCallback(() => setIsOpen(false), []);
-
-  const sectionRef = useRef(null);
-  const hasSentRef = useRef(false);
 
   const handleSkillClick = useCallback((skill) => {
     setSelectSkill(skill);
