@@ -2,7 +2,7 @@ import React, { memo, useState, useCallback, useMemo, useRef, useEffect } from "
 import { content } from "../Content";
 import Modal from "react-modal";
 import { MdArrowForward } from "react-icons/md";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 const customStyles = {
   content: {
@@ -44,27 +44,28 @@ const Skills = memo(() => {
 
     const sendVisitNotification = async () => {
       try {
+        const formData = new FormData();
+        formData.append("name", "Portfolio Visitor");
+        formData.append("email", "noreply@portfolio.com");
+        formData.append("_replyto", "noreply@portfolio.com");
+        formData.append("_subject", "Skills section visited");
+        formData.append("message", "A visitor has reached the Skills section of your portfolio.");
+
         const response = await fetch("https://formspree.io/f/xkoelwpz", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            name: "Portfolio Visitor",
-            email: "noreply@portfolio.com",
-            subject: "Skills section visited",
-            message: "A visitor has reached the Skills section of your portfolio.",
-          }),
+          body: formData,
         });
 
         if (response.ok) {
           toast.success("Skills section visit recorded.");
         } else {
-          console.error("Skills section notification failed", response.statusText);
+          const errorText = await response.text();
+          console.error("Skills section notification failed", response.status, errorText);
+          toast.error("Skills section notification failed.");
         }
       } catch (error) {
         console.error("Skills section notification error", error);
+        toast.error("Skills section notification error.");
       }
     };
 
@@ -87,6 +88,7 @@ const Skills = memo(() => {
 
   return (
     <section ref={sectionRef} className="min-h-fit bg-bg_light_primary px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-14" id="skills">
+      <Toaster />
       {modalIsOpen && (
   <Modal
     isOpen={modalIsOpen}
