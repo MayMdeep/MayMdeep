@@ -11,6 +11,11 @@ const Services = () => {
         <h4 className="subtitle text-lg sm:text-xl md:text-2xl" data-aos="fade-down">
           {services.subtitle}
         </h4>
+        {services.tagline && (
+          <p className="mt-4 max-w-3xl text-base text-gray-600">
+            {services.tagline}
+          </p>
+        )}
         <br />
         <div className="flex flex-wrap justify-center gap-6">
           {services.service_content.map((content, i) => (

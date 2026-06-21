@@ -24,6 +24,12 @@ const Hero = () => {
           {hero.subtitle && (
             <p className="mt-3 text-lg text-gray-600 max-w-xl">{hero.subtitle}</p>
           )}
+          {hero.tagline && (
+            <p className="mt-4 text-base text-gray-600 max-w-xl">{hero.tagline}</p>
+          )}
+          {hero.mission && (
+            <p className="mt-4 text-base text-gray-600 max-w-xl font-medium">{hero.mission}</p>
+          )}
           <br />
           <div className="flex flex-wrap gap-4 justify-end">
             <a

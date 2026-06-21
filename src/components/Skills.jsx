@@ -1,7 +1,9 @@
 import React, { memo, useState, useCallback, useMemo, useRef, useEffect } from "react";
+import React, { memo, useState, useCallback, useMemo, useRef, useEffect } from "react";
 import { content } from "../Content";
 import Modal from "react-modal";
 import { MdArrowForward } from "react-icons/md";
+import toast, { Toaster } from "react-hot-toast";
 import toast, { Toaster } from "react-hot-toast";
 
 const customStyles = {
@@ -27,6 +29,9 @@ const Skills = memo(() => {
   const { skills } = useMemo(() => content, []);
   const [modalIsOpen, setIsOpen] = useState(false);
   const [selectSkill, setSelectSkill] = useState(null);
+
+  const sectionRef = useRef(null);
+  const hasSentRef = useRef(false);
 
   const openModal = useCallback(() => setIsOpen(true), []);
   const closeModal = useCallback(() => setIsOpen(false), []);
@@ -133,6 +138,11 @@ const Skills = memo(() => {
         <h4 className="subtitle text-lg sm:text-xl md:text-2xl" data-aos="fade-down">
           {skills.subtitle}
         </h4>
+        {skills.skills_intro && (
+          <p className="mt-4 max-w-3xl text-base text-gray-600">
+            {skills.skills_intro}
+          </p>
+        )}
         <br />
         <div className="flex flex-wrap gap-4 justify-center">
           {skills.skills_content.map((skill, i) => (
