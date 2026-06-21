@@ -230,7 +230,7 @@ export const content = {
       {
         name: "RESTful APIs",
         para: "Designing and documenting RESTful APIs for interoperability.",
-        logo: services_logo2,
+        logo: services_logo2, // Add this line
       },
       {
         name: "German Technical Communication",
