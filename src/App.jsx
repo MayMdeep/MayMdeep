@@ -23,7 +23,7 @@ const App = () => {
     });
   }, []);
 
-  const { Contact: contactData, Footer } = content;
+  const { Footer } = content;
 
   return (
     <div className="overflow-hidden">
@@ -43,6 +43,9 @@ const App = () => {
 <footer className="border-t border-gray-100 bg-white py-8 mt-20">
   <div className="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
     
+    <p className="text-sm text-gray-500">
+      {Footer.text}
+    </p>
     <p className="text-sm text-gray-500">
       © {new Date().getFullYear()} May Deeb. All rights reserved.
     </p>

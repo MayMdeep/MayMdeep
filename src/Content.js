@@ -91,6 +91,8 @@ export const content = {
     },
   ],
   hero: {
+    tagline: "Building products that people love — and that love translates into loyalty, revenue, and growth.",
+    mission: "I don't just manage backlogs. I own outcomes. I decide what we build, what we kill, and defend every call with evidence.",
     title: "Product Owner & Software Engineer",
     subtitle: "B2B/B2C SaaS Specialist | Agile Leader | Trilingual: Arabic, English & German",
     firstName: "MAY",
@@ -102,7 +104,7 @@ export const content = {
     hero_content: [
       {
         count: "5+",
-        text: "Years of Experinse in Web development",
+        text: "Years of Experinse in Product Ownership and Software Development",
       },
       {
         count: "20+",
@@ -113,6 +115,7 @@ export const content = {
   skills: {
     title: "Skills",
     subtitle: "MY TOP SKILLS",
+    skills_intro: "With 6+ years of experience across product ownership, software architecture, and team leadership, I bridge the gap between business vision and technical execution. I thrive at the intersection of AI, SaaS, and agile product development.",
     skills_content: [
       {
         name: "Leadership",
@@ -281,6 +284,7 @@ export const content = {
   services: {
     title: "Services",
     subtitle: "WHAT I OFFER",
+    tagline: "I turn complex problems into scalable products. From strategy to code — I deliver.",
     service_content: [
       {
         title: "Product Ownership & Strategy",
@@ -305,6 +309,7 @@ export const content = {
   Projects: {
     title: "Projects",
     subtitle: "MY CREATION",
+    intro: "Every project tells a story. Here are some of mine — from ISP billing systems for millions of users to loyalty platforms that drive retention.",
     image: person_project,
     project_content: [
       
@@ -353,11 +358,13 @@ export const content = {
     image1: Hireme_person,
     image2: Hireme_person2,
     para: "Looking for a skilled professional to bring your project to life? I offer expertise in product ownership, full-stack development, and team leadership for international and German-speaking teams.",
+    cta: "Ready to build something great? Let's talk.",
     btnText: "Contact Me",
   },
   Contact: {
     title: "Contact Me",
     subtitle: "GET IN TOUCH",
+    availability: "Available for remote, hybrid, or on-site roles in Germany, Ireland, or the EU. Visa sponsorship ready.",
     social_media: [
       {
         text: "may.m.deep@gmail.com",
@@ -383,7 +390,7 @@ export const content = {
     note: "Open to German-speaking roles and international remote work",
   },
   Footer: {
-    text: "مرحبا • Hello • Hallo — All © Copy Right Reserved 2026",
+    text: "مرحبا • Hello • Hallo — Let's build the future together.",
   },
   languages: {
     title: "Languages",

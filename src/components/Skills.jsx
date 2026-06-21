@@ -65,6 +65,11 @@ const Skills = memo(() => {
         <h4 className="subtitle text-lg sm:text-xl md:text-2xl" data-aos="fade-down">
           {skills.subtitle}
         </h4>
+        {skills.skills_intro && (
+          <p className="mt-4 max-w-3xl text-base text-gray-600">
+            {skills.skills_intro}
+          </p>
+        )}
         <br />
         <div className="flex flex-wrap gap-4 justify-center">
           {skills.skills_content.map((skill, i) => (

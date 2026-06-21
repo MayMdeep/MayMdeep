@@ -47,6 +47,11 @@ const Projects = () => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold" data-aos="fade-down">
             {Projects.title}
           </h2>
+          {Projects.intro && (
+            <p className="mt-4 max-w-2xl mx-auto text-base text-gray-600">
+              {Projects.intro}
+            </p>
+          )}
         </div>
 
         {/* Swiper Section */}
