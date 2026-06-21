@@ -42,14 +42,31 @@ const Skills = memo(() => {
   useEffect(() => {
     if (!sectionRef.current || hasSentRef.current) return;
 
+    const getVisitorCountry = async () => {
+      try {
+        const response = await fetch("https://ipapi.co/json/");
+        if (!response.ok) return "Unknown";
+        const data = await response.json();
+        return data.country_name || data.country || "Unknown";
+      } catch (error) {
+        console.error("Country lookup failed", error);
+        return "Unknown";
+      }
+    };
+
     const sendVisitNotification = async () => {
       try {
+        const country = await getVisitorCountry();
         const formData = new FormData();
         formData.append("name", "Portfolio Visitor");
         formData.append("email", "noreply@portfolio.com");
         formData.append("_replyto", "noreply@portfolio.com");
-        formData.append("_subject", "Skills section visited");
-        formData.append("message", "A visitor has reached the Skills section of your portfolio.");
+        formData.append("_subject", `Skills section visited — ${country}`);
+        formData.append(
+          "message",
+          `A visitor has reached the Skills section of your portfolio from ${country}.`
+        );
+        formData.append("country", country);
 
         const response = await fetch("https://formspree.io/f/xkoelwpz", {
           method: "POST",
@@ -57,7 +74,7 @@ const Skills = memo(() => {
         });
 
         if (response.ok) {
-          toast.success("Skills section visit recorded.");
+          toast.success(`Skills section visit recorded from ${country}.`);
         } else {
           const errorText = await response.text();
           console.error("Skills section notification failed", response.status, errorText);
