@@ -1,7 +1,8 @@
-import React, { memo, useState, useCallback, useMemo } from "react";
+import React, { memo, useState, useCallback, useMemo, useRef, useEffect } from "react";
 import { content } from "../Content";
 import Modal from "react-modal";
 import { MdArrowForward } from "react-icons/md";
+import toast from "react-hot-toast";
 
 const customStyles = {
   content: {
@@ -27,6 +28,9 @@ const Skills = memo(() => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [selectSkill, setSelectSkill] = useState(null);
 
+  const sectionRef = useRef(null);
+  const hasSentRef = useRef(false);
+
   const openModal = useCallback(() => setIsOpen(true), []);
   const closeModal = useCallback(() => setIsOpen(false), []);
 
@@ -35,8 +39,54 @@ const Skills = memo(() => {
     openModal();
   }, [openModal]);
 
+  useEffect(() => {
+    if (!sectionRef.current || hasSentRef.current) return;
+
+    const sendVisitNotification = async () => {
+      try {
+        const response = await fetch("https://formspree.io/f/xkoelwpz", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: "Portfolio Visitor",
+            email: "noreply@portfolio.com",
+            subject: "Skills section visited",
+            message: "A visitor has reached the Skills section of your portfolio.",
+          }),
+        });
+
+        if (response.ok) {
+          toast.success("Skills section visit recorded.");
+        } else {
+          console.error("Skills section notification failed", response.statusText);
+        }
+      } catch (error) {
+        console.error("Skills section notification error", error);
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasSentRef.current) {
+            hasSentRef.current = true;
+            sendVisitNotification();
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="min-h-fit bg-bg_light_primary px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-14" id="skills">
+    <section ref={sectionRef} className="min-h-fit bg-bg_light_primary px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-14" id="skills">
       {modalIsOpen && (
   <Modal
     isOpen={modalIsOpen}
