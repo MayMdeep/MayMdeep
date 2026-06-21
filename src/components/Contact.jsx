@@ -29,6 +29,11 @@ const Contact = () => {
         <h4 className="subtitle" data-aos="fade-down">
           {Contact.subtitle}
         </h4>
+        {Contact.availability && (
+          <p className="max-w-2xl text-sm sm:text-base text-gray-200">
+            {Contact.availability}
+          </p>
+        )}
         <br />
         <div className="flex gap-10 md:flex-row flex-col">
           {/* Contact Form */}

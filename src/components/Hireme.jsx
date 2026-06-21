@@ -34,6 +34,11 @@ const Hireme = () => {
             className="border-2 border-dark_primary max-w-sm w-full
            p-6 shadow-sm rounded-xl rounded-br-[8rem] sm:min-w-[22rem] bg-white"
           >
+            {Hireme.cta && (
+              <h5 className="mb-4 text-lg font-semibold text-gray-900">
+                {Hireme.cta}
+              </h5>
+            )}
             <p className="leading-7 text-sm sm:text-base">{Hireme.para}</p>
             <br />
             <a
