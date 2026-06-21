@@ -1,7 +1,8 @@
-import React, { memo, useState, useCallback, useMemo } from "react";
+import React, { memo, useState, useCallback, useMemo, useRef, useEffect } from "react";
 import { content } from "../Content";
 import Modal from "react-modal";
 import { MdArrowForward } from "react-icons/md";
+import toast, { Toaster } from "react-hot-toast";
 
 const customStyles = {
   content: {
@@ -30,13 +31,80 @@ const Skills = memo(() => {
   const openModal = useCallback(() => setIsOpen(true), []);
   const closeModal = useCallback(() => setIsOpen(false), []);
 
+  const sectionRef = useRef(null);
+  const hasSentRef = useRef(false);
+
   const handleSkillClick = useCallback((skill) => {
     setSelectSkill(skill);
     openModal();
   }, [openModal]);
 
+  useEffect(() => {
+    if (!sectionRef.current || hasSentRef.current) return;
+
+    const getVisitorCountry = async () => {
+      try {
+        const response = await fetch("https://ipapi.co/json/");
+        if (!response.ok) return "Unknown";
+        const data = await response.json();
+        return data.country_name || data.country || "Unknown";
+      } catch (error) {
+        console.error("Country lookup failed", error);
+        return "Unknown";
+      }
+    };
+
+    const sendVisitNotification = async () => {
+      try {
+        const country = await getVisitorCountry();
+        const formData = new FormData();
+        formData.append("name", "Portfolio Visitor");
+        formData.append("email", "noreply@portfolio.com");
+        formData.append("_replyto", "noreply@portfolio.com");
+        formData.append("_subject", `Skills section visited — ${country}`);
+        formData.append(
+          "message",
+          `A visitor has reached the Skills section of your portfolio from ${country}.`
+        );
+        formData.append("country", country);
+
+        const response = await fetch("https://formspree.io/f/xkoelwpz", {
+          method: "POST",
+          body: formData,
+        });
+
+        if (response.ok) {
+          toast.success(`Skills section visit recorded from ${country}.`);
+        } else {
+          console.error("Skills section notification failed", response.status, await response.text());
+          toast.success("Welcome to my portfolio!");
+        }
+      } catch (error) {
+        console.error("Skills section notification error", error);
+        toast.success("Welcome to my portfolio!");
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasSentRef.current) {
+            hasSentRef.current = true;
+            sendVisitNotification();
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="min-h-fit bg-bg_light_primary px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-14" id="skills">
+    <section ref={sectionRef} className="min-h-fit bg-bg_light_primary px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-14" id="skills">
+      <Toaster />
       {modalIsOpen && (
   <Modal
     isOpen={modalIsOpen}
