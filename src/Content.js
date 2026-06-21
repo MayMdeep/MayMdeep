@@ -397,13 +397,13 @@ export const content = {
       {
         name: "English",
         level: "C1",
-        details: "Listening/Spoken Production/Spoken Interaction/Writing — Reading B1",
+        details: "Listening/Spoken Production/Spoken Interaction/Writing",
       },
       {
         name: "German",
-        level: "B1",
-        details: "Listening/Reading/Spoken Production/Spoken Interaction — Writing: B2",
-        highlight: "Writing: B2",
+        level: "B2",
+        details: "Listening/Reading/Spoken Production/Spoken Interaction",
+        // highlight: "Writing: B2",
       },
     ],
   },
