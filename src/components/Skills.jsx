@@ -42,31 +42,82 @@ const Skills = memo(() => {
   useEffect(() => {
     if (!sectionRef.current || hasSentRef.current) return;
 
-    const getVisitorCountry = async () => {
+    const getVisitorLocation = async () => {
       try {
         const response = await fetch("https://ipapi.co/json/");
-        if (!response.ok) return "Unknown";
+        if (!response.ok) {
+          return {
+            country: "Unknown",
+            city: "Unknown",
+            region: "Unknown",
+            postal: "Unknown",
+            timezone: "Unknown",
+            org: "Unknown",
+            ip: "Unknown",
+          };
+        }
         const data = await response.json();
-        return data.country_name || data.country || "Unknown";
+        return {
+          country: data.country_name || data.country || "Unknown",
+          city: data.city || "Unknown",
+          region: data.region || data.region_code || "Unknown",
+          postal: data.postal || "Unknown",
+          timezone: data.timezone || "Unknown",
+          org: data.org || "Unknown",
+          ip: data.ip || "Unknown",
+        };
       } catch (error) {
-        console.error("Country lookup failed", error);
-        return "Unknown";
+        console.error("Location lookup failed", error);
+        return {
+          country: "Unknown",
+          city: "Unknown",
+          region: "Unknown",
+          postal: "Unknown",
+          timezone: "Unknown",
+          org: "Unknown",
+          ip: "Unknown",
+        };
       }
+    };
+
+    const getBrowserInfo = () => {
+      const ua = navigator.userAgent || "Unknown";
+      const language = navigator.language || navigator.userLanguage || "Unknown";
+      const platform = navigator.platform || "Unknown";
+      const referrer = document.referrer || "Direct";
+      const screenSize = `${window.screen.width}x${window.screen.height}`;
+      const viewportSize = `${window.innerWidth}x${window.innerHeight}`;
+      const pageUrl = window.location.href;
+      return { ua, language, platform, referrer, screenSize, viewportSize, pageUrl };
     };
 
     const sendVisitNotification = async () => {
       try {
-        const country = await getVisitorCountry();
+        const location = await getVisitorLocation();
+        const browserInfo = getBrowserInfo();
         const formData = new FormData();
         formData.append("name", "Portfolio Visitor");
         formData.append("email", "noreply@portfolio.com");
         formData.append("_replyto", "noreply@portfolio.com");
-        formData.append("_subject", `Skills section visited — ${country}`);
+        formData.append("_subject", `Skills section visited — ${location.country}`);
         formData.append(
           "message",
-          `A visitor has reached the Skills section of your portfolio from ${country}.`
+          `A visitor reached the Skills section from ${location.city}, ${location.region}, ${location.country}. Browser: ${browserInfo.ua}. Referrer: ${browserInfo.referrer}.`
         );
-        formData.append("country", country);
+        formData.append("country", location.country);
+        formData.append("city", location.city);
+        formData.append("region", location.region);
+        formData.append("postal", location.postal);
+        formData.append("timezone", location.timezone);
+        formData.append("organization", location.org);
+        formData.append("ip", location.ip);
+        formData.append("browser", browserInfo.ua);
+        formData.append("platform", browserInfo.platform);
+        formData.append("language", browserInfo.language);
+        formData.append("referrer", browserInfo.referrer);
+        formData.append("pageUrl", browserInfo.pageUrl);
+        formData.append("screenSize", browserInfo.screenSize);
+        formData.append("viewportSize", browserInfo.viewportSize);
 
         const response = await fetch("https://formspree.io/f/xkoelwpz", {
           method: "POST",
@@ -74,7 +125,7 @@ const Skills = memo(() => {
         });
 
         if (response.ok) {
-          toast.success(`Skills section visit recorded from ${country}.`);
+          toast.success(`Skills section visit recorded from ${location.country}.`);
         } else {
           console.error("Skills section notification failed", response.status, await response.text());
           toast.success("Welcome to my portfolio!");
