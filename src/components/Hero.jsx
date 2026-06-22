@@ -20,6 +20,9 @@ const Hero = () => {
 
         {/* first col */}
         <div className="pb-16 px-6 pt-5" data-aos="fade-down">
+          <h1 className="text-4xl font-bold mb-2">
+            {hero.firstName} {hero.LastName}
+          </h1>
           <h2>{hero.title}</h2>
           {hero.subtitle && (
             <p className="mt-3 text-lg text-gray-600 max-w-xl">{hero.subtitle}</p>

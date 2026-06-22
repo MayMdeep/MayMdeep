@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://may-deep.vercel.app/sitemap.xml
