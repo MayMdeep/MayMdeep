@@ -17,14 +17,14 @@ const Hireme = () => {
           {/* Image for Desktop */}
           <img
             src={Hireme.image1}
-            alt="Hire Me"
+            alt="May Deeb — Product Owner & Software Engineer"
             data-aos="fade-right"
             className="max-w-sm w-full md:block hidden"
           />
           {/* Image for Mobile */}
           <img
             src={Hireme.image2}
-            alt="Hire Me"
+            alt="May Deeb — Product Owner & Software Engineer"
             data-aos="fade-up"
             className="max-w-sm w-full md:hidden"
           />
