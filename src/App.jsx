@@ -47,7 +47,7 @@ const App = () => {
       {Footer.text}
     </p>
     <p className="text-sm text-gray-500">
-      © {new Date().getFullYear()} May Deeb. All rights reserved.
+      © {new Date().getFullYear()} May M Deeb. All rights reserved.
     </p>
 
     <div className="flex items-center gap-6">

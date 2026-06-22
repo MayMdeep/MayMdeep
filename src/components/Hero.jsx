@@ -70,7 +70,7 @@ const Hero = () => {
           <img
             src={hero.image}
             data-aos="slide-up"
-            alt="May Deeb — Product Owner & Software Engineer"
+            alt="May M Deeb — Product Owner & Software Engineer"
             className="h-full object-cover"
           />
         </div>
