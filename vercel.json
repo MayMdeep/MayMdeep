@@ -17,12 +17,5 @@
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     }
-  ],
-  "redirects": [
-    {
-      "source": "/(.*)",
-      "destination": "https://may-deep.vercel.app/:1",
-      "statusCode": 308
-    }
   ]
 }
